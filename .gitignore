@@ -1,0 +1,25 @@
+# --- Jupyter Notebook Caches ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+__pycache__/
+.pytest_cache/
+
+# --- Java Caches & Compiled Artifacts ---
+*.class
+*.jar
+*.war
+*.ear
+.jbang/
+.java/
+
+# --- IDE and Tooling (VS Code & Codespaces) ---
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+.history/
+*.log
+.DS_Store
+
+# --- OS temporary files ---
+Thumbs.db
+ehthumbs.db
