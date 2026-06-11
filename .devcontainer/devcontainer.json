@@ -1,7 +1,14 @@
 {
-  "name": "Minimal Java Jupyter",
+  "name": "Java Jupyter Codespace",
   "image": "mcr.microsoft.com/devcontainers/java:17",
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y python3-venv && python3 -m venv ~/jupyter-env && ~/jupyter-env/bin/pip install jupyterlab jupyter_client && wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip && unzip ijava-1.3.0.zip -d ijava-kernel && ~/jupyter-env/bin/python ijava-kernel/install.py --sys-prefix && rm -rf ijava-kernel ijava-1.3.0.zip",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "latest"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -9,5 +16,6 @@
         "vscjava.vscode-java-pack"
       ]
     }
-  }
+  },
+  "postCreateCommand":"curl -Ls https://jbang.dev | bash -s - app setup && export PATH=\"$HOME/.jbang/bin:$PATH\" && pip3 install --user jupyter ipykernel && jbang trust add https://github.com && jbang install-kernel@jupyter-java && mkdir -p ~/.local/share/jupyter/kernels && ln -sf ~/.jbang/cache/jupyter/kernels/jjava ~/.local/share/jupyter/kernels/jjava"
 }
