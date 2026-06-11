@@ -17,5 +17,5 @@
       ]
     }
   },
-  "postCreateCommand": "curl -Ls https://sh.jbang.dev | bash -s - app setup && export PATH=\"$HOME/.jbang/bin:$PATH\" && pip3 install --user jupyter ipykernel && jbang trust add https://github.com && jbang install-kernel@jupyter-java && mkdir -p ~/.local/share/jupyter/kernels && ln -sf ~/.jbang/cache/jupyter/kernels/jjava ~/.local/share/jupyter/kernels/jjava"
+  "postCreateCommand": "bash .devcontainer/setup.sh"
 }
